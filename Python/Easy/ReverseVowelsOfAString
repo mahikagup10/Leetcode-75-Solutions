@@ -1,0 +1,31 @@
+#using double pointers
+class Solution:
+    def reverseVowels(self, s: str) -> str:
+        sl = list(s)
+        v = 'aeiouAEIOU'
+        # print(sl)
+        i = 0
+        j = len(sl)-1
+        while(i<j):
+            if sl[i] in v and sl[j] in v:
+                temp = sl[i]
+                sl[i] = sl[j]
+                sl[j] = temp
+                i+=1
+                j-=1
+            elif sl[i] in v and sl[j] not in v:
+                j-=1
+            elif sl[i] not in v and sl[j] in v:
+                i+=1
+            else:
+                i+=1
+                j-=1
+        #print(sl)
+        res = "".join(sl)
+        return res
+
+
+
+
+
+        
